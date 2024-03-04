@@ -11,6 +11,9 @@ app.get('/reset', (req, res) => {
     controller.resetDatabase(req, res);
 });
 
+const postRouter = require('./routes/Posts')
+app.use('/posts', postRouter);
+
 ////////////////////////////////
 
 const{Sequelize, DataTypes} = require('sequelize');
