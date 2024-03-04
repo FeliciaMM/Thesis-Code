@@ -11,8 +11,8 @@ app.get('/reset', (req, res) => {
     controller.resetDatabase(req, res);
 });
 
-const postRouter = require('./routes/Posts')
-app.use('/posts', postRouter);
+//const postRouter = require('./routes/Posts')
+//app.use('/posts', postRouter);
 
 ////////////////////////////////
 
@@ -32,6 +32,8 @@ const sequelize = new Sequelize('PawCare','root','',{
 const Post = sequelize.define('Post',{
     title:DataTypes.STRING,
     text:DataTypes.STRING,
+    username:DataTypes.STRING,
+    
 });
 
 const controller = {
