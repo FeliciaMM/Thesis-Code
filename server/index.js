@@ -1,6 +1,10 @@
 const express = require("express")
 const app = express()
 
+app.use(express.json());
+
+// const postRouter = require('./routes/Posts')
+// app.use('/posts', postRouter);
 
 
 app.listen(3001, ()=> {
@@ -11,8 +15,7 @@ app.get('/reset', (req, res) => {
     controller.resetDatabase(req, res);
 });
 
-//const postRouter = require('./routes/Posts')
-//app.use('/posts', postRouter);
+
 
 ////////////////////////////////
 
