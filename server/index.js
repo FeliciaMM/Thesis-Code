@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express()
-const { sequelize, Post } = require('./database');
+const { sequelize, Posts } = require('./database');
 
 app.use(express.json());
 
@@ -18,7 +18,7 @@ app.listen(3001, ()=> {
 
 
 
-module.exports = { Post };
+module.exports = { Posts };
 
 ////////////////////////////////
 

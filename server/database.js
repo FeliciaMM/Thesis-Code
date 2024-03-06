@@ -14,13 +14,13 @@ const sequelize = new Sequelize('PawCare', 'root', '', {
     }
 });
 
-const Post = sequelize.define('Post', {
+const Posts = sequelize.define('Post', {
     title: DataTypes.STRING,
     text: DataTypes.STRING,
     username: DataTypes.STRING
 });
 
-module.exports = { sequelize, Post };
+module.exports = { sequelize, Posts };
 
 const controller = {
     resetDatabase: async(req,res)=>{
