@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import './App.css';
 
 function App() {
   const [backendData, setBackendData] = useState([{}])
@@ -28,7 +29,7 @@ function App() {
       {/* Afișează datele primite de la backend */}
       <ul>
         {backendData.map((post, index) => (
-          <div className='post'>
+          <div className='post' key={index}>
           
           <div className='title'>{post.title}</div>
           <div className='body'>{post.text}</div>
