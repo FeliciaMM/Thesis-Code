@@ -1,6 +1,7 @@
 import React from 'react'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
+import axios from 'axios'
 
 function CreatePost() {
 
@@ -17,7 +18,10 @@ function CreatePost() {
     })
 
     const onSubmit=(data)=>{
-        console.log(data);
+        axios.post("http://localhost:3001/posts", data).then((response)=>{
+           
+        });
+       
     }
   return (
     <div className='createPostContainer'> 
