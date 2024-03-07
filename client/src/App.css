@@ -11,7 +11,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url('./images/background.png');
+  background-image: url('./assets/fundal.png');
   background-size: cover;
 }
 

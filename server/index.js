@@ -1,18 +1,24 @@
 const express = require("express")
+const cors = require('cors')
 const app = express()
 const { sequelize, Posts } = require('./database');
 
+
+app.use(express.json());
+
+app.use(cors());
+
 app.get("/api", async (req, res) => {
     try {
-        const posts = await Posts.findAll(); // sau metoda corespunzătoare pentru a obține datele din baza de date
-        res.json(posts);
+        const posts = await Posts.findAll(); 
+        res.status(200).send(posts);
     } catch (error) {
         console.error('Error fetching data:', error);
         res.status(500).json({ error: 'Failed to fetch data' });
     }
 });
 
-app.use(express.json());
+
 
 const postRouter = require('./routes/Posts')
 app.use('/posts', postRouter);
@@ -36,4 +42,3 @@ module.exports = { Posts };
 
 
 //DON T FORGET CU CD
-
