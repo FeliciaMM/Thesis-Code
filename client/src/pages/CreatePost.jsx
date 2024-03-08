@@ -13,7 +13,7 @@ function CreatePost() {
 
     const validationSchema=Yup.object().shape({
         title: Yup.string().required(),
-        text: Yup.string().required(),
+        text: Yup.string().required().max(5000),
         username: Yup.string().min(3).max(20).required()
     })
 
@@ -27,28 +27,27 @@ function CreatePost() {
     <div className='createPostContainer'> 
         <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
         <Form>
-            <label>Title: </label>
-            <ErrorMessage name="title" component ="span"/>
-            <Field  
-            id="inputCreatePost" 
-            name="title" 
-            placeholder="Write a title"
-            />
-            <label>Post: </label>
-            <ErrorMessage name="text" component ="span"/>
-            <Field  
-            id="inputCreatePost" 
-            name="text" 
-            placeholder="Write a post"
-            />
-            <label>Username: </label>
+            <label id='labelUsername'>Username: </label>
             <ErrorMessage name="username" component ="span"/>
             <Field  
-            id="inputCreatePost" 
+            id="inputUsername" 
             name="username" 
             placeholder="Your username"
             />
-
+            <label id='labelTitle'>Title: </label>
+            <ErrorMessage name="title" component ="span"/>
+            <Field 
+            id="inputTitle" 
+            name="title" 
+            placeholder="Write a title"
+            />
+            <label id='labelText'>Post: </label>
+            <ErrorMessage name="text" component ="span"/>
+            <Field  as="textarea"
+            id="inputText" 
+            name="text" 
+            placeholder="Write a post"
+            />
             <button type="submit"> Submit Post</button>
         </Form>
         </Formik>
