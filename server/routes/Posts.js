@@ -3,7 +3,6 @@ const router = express.Router();
 const { Posts } = require("../database.js");
 
 
-
 router.get('/', async(req, res)=>{
      const listOfPosts = await Posts.findAll();
      res.json(listOfPosts);

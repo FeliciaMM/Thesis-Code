@@ -1,9 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
-
-
-
-
 const sequelize = new Sequelize('PawCare', 'root', '', {
     host: "localhost",
     dialect: 'mysql',
@@ -20,12 +16,13 @@ const Posts = sequelize.define('Post', {
     username: DataTypes.STRING
 });
 
-module.exports = { sequelize, Posts };
+const Comments = sequelize.define('Comment', {
+    commentText: DataTypes.STRING, 
+});
 
-const controller = {
-    resetDatabase: async(req,res)=>{
-         await sequelize.sync({force:true});
-         console.log('All the models have been synced');
-         res.status(201).send({message: "merge"})
-    } 
- }
+module.exports = { sequelize, Posts, Comments};
+
+Posts.hasMany(Comments,{
+    onDelete: "cascade",
+});
+Comments.belongsTo(Posts);

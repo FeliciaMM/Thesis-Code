@@ -1,7 +1,7 @@
 const express = require("express")
 const cors = require('cors')
 const app = express()
-const { sequelize, Posts } = require('./database');
+const { sequelize, Posts, Comments } = require('./database');
 
 
 app.use(express.json());
@@ -18,10 +18,11 @@ app.get("/posts", async (req, res) => {
     }
 });
 
-
-
 const postRouter = require('./routes/Posts')
 app.use('/posts', postRouter);
+
+const commentsRouter = require('./routes/Comments')
+app.use('/comments', commentsRouter);
 
 
 app.get('/reset', (req, res) => {
@@ -32,9 +33,15 @@ app.listen(3001, ()=> {
     console.log("server running on port 3001");
 });
 
+const controller = {
+    resetDatabase: async(req,res)=>{
+         await sequelize.sync({force:true});
+         console.log('All the models have been synced');
+         res.status(201).send({message: "merge"})
+    } 
+ }
 
-
-module.exports = { Posts };
+module.exports = { Posts, Comments };
 
 ////////////////////////////////
 
