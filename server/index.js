@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.use(cors());
 
-app.get("/api", async (req, res) => {
+app.get("/posts", async (req, res) => {
     try {
         const posts = await Posts.findAll(); 
         res.status(200).send(posts);
