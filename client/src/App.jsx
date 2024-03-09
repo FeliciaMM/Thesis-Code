@@ -8,7 +8,7 @@ function App() {
   return (
     <div className='App'>
       <Router>
-        <div>
+        <div className='navbar'>
         <Link to="/createpost"> Create a Post</Link>
         <Link to="/">Home Page</Link>
         </div>
