@@ -11,7 +11,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url('./assets/fundal.png');
+  background-image: url('./assets/sundal2.png');
   background-size: cover;
 }
 
@@ -140,4 +140,39 @@ span {
   margin-left: 30px;
 }
 /* Post page */
+
+.upSide{
+  background-color: aliceblue;
+  width: 800px;
+  height: 500px;
+  color:black;
+}
+
+#commentInput{
+  width: 800px;
+  height: 50px;
+
+}
+
+
+
+.downSide .Comments {
+  flex: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Comments .comment {
+  width: 70%;
+  height: auto;
+  padding: 30px;
+  border: 1px solid lightgray;
+  background-color: aliceblue;
+  color: black;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
 
