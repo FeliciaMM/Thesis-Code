@@ -85,7 +85,7 @@ body {
 
 }
 
-#inputTitle{
+#inputTitle #labelTitlel{
   display: flex;
   
 }
@@ -138,6 +138,7 @@ span {
   text-decoration: none;
   color: white;
   margin-left: 30px;
+  
 }
 /* Post page */
 
@@ -147,6 +148,7 @@ span {
   height: 500px;
   color:black;
 }
+
 
 #commentInput{
   width: 800px;
@@ -174,5 +176,4 @@ span {
   border-radius: 5px;
   margin-top: 20px;
 }
-
 

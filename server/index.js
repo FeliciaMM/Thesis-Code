@@ -1,7 +1,7 @@
 const express = require("express")
 const cors = require('cors')
 const app = express()
-const { sequelize, Posts, Comments } = require('./database');
+const { sequelize ,Users, Posts, Comments } = require('./database');
 
 
 app.use(express.json());
@@ -24,6 +24,8 @@ app.use('/posts', postRouter);
 const commentsRouter = require('./routes/Comments')
 app.use('/comments', commentsRouter);
 
+const usersRouter = require('./routes/Users')
+app.use('/authentification', usersRouter);
 
 app.get('/reset', (req, res) => {
     controller.resetDatabase(req, res);
@@ -41,7 +43,7 @@ const controller = {
     } 
  }
 
-module.exports = { Posts, Comments };
+module.exports = {Users, Posts, Comments };
 
 ////////////////////////////////
 
