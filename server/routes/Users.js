@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { Users } = require("../database.js");
 const bcrypt = require('bcrypt');
-
 const{sign} = require('jsonwebtoken');
+const { validateToken } = require('../middlewares/AuthMiddleware.js');
 
 router.post('/',async(req,res)=>{
     const { username,password } = req.body;
@@ -37,6 +37,10 @@ router.post('/',async(req,res)=>{
         res.json(accessToken);
         
     });
+});
+
+router.get('/auth',validateToken, (req, res)=>{
+    res.json(req.user);
 });
 
 

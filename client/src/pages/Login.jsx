@@ -1,10 +1,15 @@
-import React,{useState} from 'react'
+import React,{useState, useContext} from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import{AuthContext} from "../helpers/AuthContext";
+
 
 function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const {setAuthState} = useContext(AuthContext);
+
+
 
     let navigate = useNavigate();
     
@@ -13,7 +18,8 @@ function Login() {
         axios.post("http://localhost:3001/authentification/login",data ).then((response)=>{
            if(response.data.error){ alert(response.data.error);
            }else{
-           sessionStorage.setItem("accessToken", response.data);
+           localStorage.setItem("accessToken", response.data);
+           setAuthState(true);
            navigate("/");
           }
         })
