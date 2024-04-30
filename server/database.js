@@ -29,7 +29,8 @@ const Posts = sequelize.define('Post', {
 });
 
 const Comments = sequelize.define('Comment', {
-    commentText: DataTypes.STRING, 
+    commentText: DataTypes.STRING,
+    username: DataTypes.STRING, 
 });
 
 module.exports = { sequelize,Users, Posts, Comments};

@@ -32,7 +32,7 @@ function Post() {
             console.log(response.data.error);
                
             }else{
-            const commentToAdd={commentText:newComment}
+            const commentToAdd={commentText:newComment, username: response.data.username}
             setComments([...comments, commentToAdd ]);
             setNewComment("");
         }
@@ -51,7 +51,10 @@ function Post() {
             <button id="commentButton" onClick={addComment}>Add Comment</button>
             <div className='Comments'>
                 {comments.map((comment,key)=>{
-                    return <div key={key} className='comment'>{comment.commentText}</div>
+                    return <div key={key} className='comment'>
+                    {comment.commentText}
+                    <label>Username: {comment.username}</label>
+                    </div>
                 })}
             </div>
         </div>
