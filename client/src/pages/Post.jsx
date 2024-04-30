@@ -53,7 +53,7 @@ function Post() {
                 {comments.map((comment,key)=>{
                     return <div key={key} className='comment'>
                     {comment.commentText}
-                    <label>Username: {comment.username}</label>
+                    <label >Username: {comment.username}</label>
                     </div>
                 })}
             </div>

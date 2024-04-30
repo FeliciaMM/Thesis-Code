@@ -22,7 +22,7 @@ function Home() {
 
 
   return (
-    <div>
+        <div>
         <ul>
         {backendData.map((post, index) => (
           <div className='post'  key={index} onClick={()=>{navigate(`/post/${post.id}`)}}>

@@ -33,8 +33,8 @@ function App() {
       <AuthContext.Provider value={{authState,setAuthState}}>
       <Router>
         <div className='navbar'>
-        <Link to="/createpost"> Create a Post</Link>
         <Link to="/">Home Page</Link>
+        <Link to="/createpost"> Create a Post</Link>
         {!authState &&(
           <>
         <Link to="/login">Login</Link>
