@@ -9,7 +9,7 @@ import {AuthContext} from "./helpers/AuthContext";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import PageNotFound from "./pages/PageNotFound";
-
+import Profile from './pages/Profile';
 
 
 function App() {
@@ -52,8 +52,7 @@ function App() {
       <Router>
         <div className='navbar'>
         <h1 className='usernameDisplay'>{authState.username}</h1>
-        <Link to="/">Home Page</Link>
-        <Link to="/createpost"> Create a Post</Link>
+        
         {!authState.status ? (
           <>
         <Link to="/login">Login</Link>
@@ -61,8 +60,14 @@ function App() {
         
         </>
       ):(
+        <>
+        <Link to="/">Home Page</Link>
+        <Link to="/createpost"> Create a Post</Link>
         <button className = "logoutButton" onClick={logout}>Logout</button>
+        </>
+        
       )}
+      
       
         </div>
         <Routes>
@@ -71,6 +76,7 @@ function App() {
           <Route path ="/post/:id"element ={<Post/>}/>
           <Route path ="/registration"element ={<Registration/>}/>
           <Route path ="/login"element ={<Login/>}/>
+          <Route path ="/profile"element ={<Profile/>}/>
           <Route path ="*"element={<PageNotFound/>}/>
         </Routes>
       </Router>
