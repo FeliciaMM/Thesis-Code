@@ -43,6 +43,7 @@ function Post() {
           console.log(response.data.userId);
       }
       });
+      window.location.reload();
   };
 
     const deletePost = (id) => {
