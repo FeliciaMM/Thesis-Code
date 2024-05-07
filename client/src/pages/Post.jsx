@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react'
-import {useParams} from 'react-router-dom'
+import {useParams, useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import { AuthContext } from '../helpers/AuthContext';
 
@@ -9,7 +9,7 @@ function Post() {
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState("");
     const {authState} = useContext(AuthContext);
-
+    let navigate = useNavigate;
 
 
     useEffect(()=>{
@@ -44,26 +44,49 @@ function Post() {
         });
     };
 
-    const deleteComment = (id) => {
-        axios
-          .delete(`http://localhost:3001/comments/${id}`, {
-            headers: { accessToken: localStorage.getItem("accessToken") },
-          })
-          .then(() => {
-            setComments(
-              comments.filter((val) => {
-                return val.id != id;
-              })
-            );
-          });
-      };
+    const deletePost = (id) => {
+      axios
+        .delete(`http://localhost:3001/posts/${id}`, {
+          headers: { accessToken: localStorage.getItem("accessToken") },
+        })
+        .then(() => {
+          navigate("/");
+        });
+    };
 
+
+    const deleteComment = (id) => {
+    axios
+      .delete(`http://localhost:3001/comments/${id}`, {
+        headers: { accessToken: localStorage.getItem("accessToken") },
+      })
+      .then(() => {
+        setComments(
+          comments.filter((val) => {
+            return val.id != id;
+          })
+        );
+      });
+  };
+
+
+   
   return (
     <div className='pageOfPosts'>
         <div className='upSide'>
             <div className='postTitle'>{postObject.title}</div>
             <div className='postText'>{postObject.text}</div>
-            <div className='postUsername'>{postObject.username}</div>
+            <div className='postUsername'>{postObject.username} {authState.username === postObject.username && (
+              <button
+                onClick={() => {
+                  deletePost(postObject.id);
+                }}
+              >
+                {" "}
+                Delete Post
+              </button>
+            )}
+            </div>
         </div>
         <div className='downSide'>
             <div className='writeComment'> <input  id="commentInput" type="text" placeholder='Write a comment' value={newComment} onChange={(event)=>{setNewComment(event.target.value)}}/></div>
