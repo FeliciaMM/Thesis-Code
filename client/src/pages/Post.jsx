@@ -23,26 +23,27 @@ function Post() {
     },[]);
 
     const addComment = ()=>{
-        axios.post("http://localhost:3001/comments",{commentText:newComment ,PostId:id, 
-    },
-    {
-        headers:{
-            accessToken:localStorage.getItem("accessToken"),
-        },
-    }
-    
-    )
-        .then((response)=>{
-            if(response.data.error){
-            console.log(response.data.error);
-               
-            }else{
-            const commentToAdd={commentText:newComment, username: response.data.username}
-            setComments([...comments, commentToAdd ]);
-            setNewComment("");
-        }
-        });
-    };
+      axios.post("http://localhost:3001/comments",{commentText:newComment ,PostId:id, 
+  },
+  {
+      headers:{
+          accessToken:localStorage.getItem("accessToken"),
+      },
+  }
+  
+  )
+      .then((response)=>{
+          if(response.data.error){
+          console.log(response.data.error);
+             
+          }else{
+          const commentToAdd={commentText:newComment, username: response.data.username, userId: response.data.userId}
+          setComments([...comments, commentToAdd ]);
+          setNewComment("");
+          console.log(response.data.userId);
+      }
+      });
+  };
 
     const deleteComment = (id) => {
         axios
@@ -76,7 +77,9 @@ function Post() {
                     {authState.username === comment.username && (
                   <button
                     onClick={() => {
+                      
                       deleteComment(comment.id);
+                      
                     }}
                   >
                     delete comment
