@@ -34,9 +34,9 @@ const Comments = sequelize.define('Comment', {
 });
 
 
-const Likes = sequelize.define('Like');
 
-module.exports = { sequelize,Users, Posts, Comments, Likes};
+
+module.exports = { sequelize,Users, Posts, Comments};
 
 Users.hasMany(Posts, { 
     onDelete: "cascade", 
@@ -55,15 +55,6 @@ Posts.hasMany(Comments, {
      // Assuming you have a foreign key postId in the Comments table referencing Posts
 });
 
-Posts.hasMany(Likes, { 
-    onDelete: "cascade", 
-     // Assuming you have a foreign key postId in the Comments table referencing Posts
-});
-
-Users.hasMany(Likes, { 
-    onDelete: "cascade", 
-     // Assuming you have a foreign key userId in the Comments table referencing Users
-});
 
 // Define the association between Comments and Users
 Comments.belongsTo(Users, {
