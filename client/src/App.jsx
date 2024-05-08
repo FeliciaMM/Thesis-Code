@@ -76,7 +76,7 @@ function App() {
           <Route path ="/post/:id"element ={<Post/>}/>
           <Route path ="/registration"element ={<Registration/>}/>
           <Route path ="/login"element ={<Login/>}/>
-          <Route path ="/profile"element ={<Profile/>}/>
+          <Route path ="/profile/:id"element ={<Profile/>}/>
           <Route path ="*"element={<PageNotFound/>}/>
         </Routes>
       </Router>
