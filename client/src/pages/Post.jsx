@@ -46,16 +46,7 @@ function Post() {
       window.location.reload();
   };
 
-    const deletePost = (id) => {
-      axios
-        .delete(`http://localhost:3001/posts/${id}`, {
-          headers: { accessToken: localStorage.getItem("accessToken") },
-        })
-        .then(() => {
-          navigate("/");
-        });
-    };
-
+    
 
     const deleteComment = (id) => {
     axios
@@ -79,11 +70,7 @@ function Post() {
             <div className='postTitle'>{postObject.title}</div>
             <div className='postText'>{postObject.text}</div>
             <div className='postUsername'>{postObject.username} {authState.username === postObject.username && (
-              <button
-                onClick={() => {
-                  deletePost(postObject.id);
-                }}
-              >
+              <button>
                 {" "}
                 Delete Post
               </button>
