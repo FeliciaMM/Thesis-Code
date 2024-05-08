@@ -4,7 +4,7 @@ import { AuthContext } from '../helpers/AuthContext';
 
 function Home() {
   const { authState } = useContext(AuthContext); 
-
+  
   const [backendData, setBackendData] = useState([]);
 
   let navigate = useNavigate();
@@ -30,7 +30,7 @@ function Home() {
           <div className='post' key={index} onClick={() => { navigate(`/post/${post.id}`) }}>
             <div className='title'>{post.title}</div>
             <div className='body'>{post.text}</div>
-            <div className='username'>{post.username}</div>
+            <div className='username'><Link to={`/profile/${post.UserId}`}> {post.username} </Link></div>
           </div>
         ))}
       </ul>
