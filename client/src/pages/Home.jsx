@@ -27,9 +27,9 @@ function Home() {
     <div>
       <ul>
         {backendData.map((post, index) => (
-          <div className='post' key={index} onClick={() => { navigate(`/post/${post.id}`) }}>
+          <div className='post' key={index} >
             <div className='title'>{post.title}</div>
-            <div className='body'>{post.text}</div>
+            <div className='body' onClick={() => { navigate(`/post/${post.id}`) }}>{post.text}</div>
             <div className='username'><Link to={`/profile/${post.UserId}`}> {post.username} </Link></div>
           </div>
         ))}
