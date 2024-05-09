@@ -31,7 +31,7 @@ function Registration() {
           <label>Username: </label>
           <ErrorMessage name="username" component="span" />
           <Field
-            id="inputCreatePost"
+            id="inputCreateUsername"
             name="username"
             placeholder="(Ex. John123...)"
           />
@@ -41,7 +41,7 @@ function Registration() {
           <Field
             
             type="password"
-            id="inputCreatePost"
+            id="inputCreatePassword"
             name="password"
             placeholder="Your Password..."
           />
