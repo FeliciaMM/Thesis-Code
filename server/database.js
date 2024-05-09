@@ -12,12 +12,22 @@ const sequelize = new Sequelize('PawCare', 'root', '', {
 
 const Users = sequelize.define('User', {
     username: {
-     type:DataTypes.STRING,
-     allowNull:false,
+        type:DataTypes.STRING,
+        allowNull:false,
     },
     password: {
         type:DataTypes.STRING,
         allowNull:false,
+    },
+    email:{
+        type:DataTypes.STRING,
+        allowNull:false,  
+        unique:true,
+    },
+    role:{
+        type:DataTypes.STRING,
+        enum:['User','PetWalker','PetGroomer','PetSitter','Vet','Specialist'],
+        default:'User',
     },
 });
 

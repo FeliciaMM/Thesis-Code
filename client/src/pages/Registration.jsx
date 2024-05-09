@@ -7,11 +7,14 @@ function Registration() {
   const initialValues = {
     username: "",
     password: "",
+    email:"",
+    role:"user",
   };
 
   const validationSchema = Yup.object().shape({
     username: Yup.string().min(3).max(15).required(),
     password: Yup.string().min(4).max(20).required(),
+    email: Yup.string().min(4).required(),
   });
 
   const onSubmit = (data) => {
@@ -46,6 +49,26 @@ function Registration() {
             placeholder="Your Password..."
           />
 
+          
+          <label>Email: </label>
+          <ErrorMessage name="email" component="span" />
+          <Field
+            id="inputCreateEmail"
+            name="email"
+            placeholder="(Ex. John@email.com)"
+          />
+        
+        <label>Role: </label>
+          <Field as="select" name="role" id="inputCreateRole">
+            <option value="user">User</option>
+            <option value="PetWalker">Pet Walker</option>
+            <option value="PetGroomer">Pet Groomer</option>
+            <option value="PetSitter">Pet Sitter</option>
+            <option value="Vet">Vet</option>
+            <option value="Specialist">Specialist</option>
+          </Field>
+
+            
           <button type="submit"> Register</button>
         </Form>
       </Formik>
