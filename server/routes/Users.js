@@ -4,6 +4,8 @@ const { Users } = require("../database.js");
 const bcrypt = require('bcrypt');
 const{sign} = require('jsonwebtoken');
 const { validateToken } = require('../middlewares/AuthMiddleware.js');
+const {authPage} = require("../middlewares/RolesMiddleware.js");
+
 
 router.post('/',async(req,res)=>{
     const { username,password,email,role } = req.body;
@@ -52,6 +54,8 @@ router.get("/basicinfo/:id", async (req,res)=>{
     });
     res.json(basicInfo);
 });
+
+
 
 
 
