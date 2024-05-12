@@ -1,0 +1,52 @@
+.formContainer {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #333;
+}
+
+input,
+select,
+button {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Added to fix padding and border issue */
+}
+
+input:focus,
+select:focus,
+button:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+button {
+    color: white;
+    background-color: #007bff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    color: #dc3545;
+    margin-top: 5px;
+    font-size: 14px;
+}
+

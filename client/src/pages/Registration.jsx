@@ -1,3 +1,4 @@
+import "../pages/CSS/Registration.css"
 import React from 'react'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
@@ -25,6 +26,7 @@ function Registration() {
 
   return (
     <div>
+      <h1>Create an Account</h1>
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}

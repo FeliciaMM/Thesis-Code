@@ -1,3 +1,4 @@
+import "../pages/CSS/CreatePost.css"
 import React, {useContext, useEffect} from 'react'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
