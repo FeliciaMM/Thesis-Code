@@ -10,7 +10,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import PageNotFound from "./pages/PageNotFound";
 import Profile from './pages/Profile';
-
+import CreatePetSitter from './pages/CreatePetSitter';
+//DELETE OR ADD PAGE 
 
 function App() {
   const [authState, setAuthState] = useState({
@@ -77,6 +78,7 @@ function App() {
           <Route path ="/registration"element ={<Registration/>}/>
           <Route path ="/login"element ={<Login/>}/>
           <Route path ="/profile/:id"element ={<Profile/>}/>
+          <Route path ="/services/createpetsitter"element ={<CreatePetSitter/>}/>
           <Route path ="*"element={<PageNotFound/>}/>
         </Routes>
       </Router>
