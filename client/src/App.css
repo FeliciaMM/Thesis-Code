@@ -1,12 +1,13 @@
 .App {
-  width: 100vw;
+  width: calc(100vw - 200px); /* Subtract the width of the navbar */
   height: auto;
   display: flex;
   align-items: center;
   padding-top: 40px;
   flex-direction: column;
-  
+  margin-left: 200px; /* Add left margin equal to the width of the navbar */
 }
+
 
 body {
   margin: 0;
