@@ -82,7 +82,7 @@ function App() {
           <Route path ="/registration"element ={<Registration/>}/>
           <Route path ="/login"element ={<Login/>}/>
           <Route path ="/profile/:id"element ={<Profile/>}/>
-          <Route path ="/services"element ={<CreatePetSitter/>}/>
+          <Route path ="/createpetsitter"element ={<CreatePetSitter/>}/>
           <Route path ="/petsitter/:id"element ={<PetSitter/>}/>
           <Route path ="/petsitteroffers"element ={<PetSitterOffers/>}/>
           <Route path ="*"element={<PageNotFound/>}/>

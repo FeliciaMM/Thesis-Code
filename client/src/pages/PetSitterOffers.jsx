@@ -14,7 +14,7 @@ function PetSitterOffers() {
         navigate("/login");
       } else {
         const fetchData = async () => {
-          const response = await fetch("http://localhost:3001/services", { mode: 'cors' });
+          const response = await fetch("http://localhost:3001/petsitteroffers", { mode: 'cors' });
           console.log(response);
           const data = await response.json();
           setBackendData(data);
@@ -26,11 +26,11 @@ function PetSitterOffers() {
     return (
       <div>
         <ul>
-          {backendData.map((serviceObject, index) => (
+          {backendData.map((petSitterObject, index) => (
             <div className='post' key={index} >
-              <div className='title'>{serviceObject.title}</div>
-              <Link to={`/petsitter/${serviceObject.id}`} className='body'>{serviceObject.text}</Link>
-              <div className='username'>{serviceObject.username}</div>
+              <div className='title'>{petSitterObject.title}</div>
+              <Link to={`/petsitter/${petSitterObject.id}`} className='body'>{petSitterObject.text}</Link>
+              <div className='username'>{petSitterObject.username}</div>
             </div>
           ))}
         </ul>

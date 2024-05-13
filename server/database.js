@@ -38,7 +38,7 @@ const Posts = sequelize.define('Post', {
     username: DataTypes.STRING
 });
 
-const Services = sequelize.define('Service', {
+const PetSitterOffers = sequelize.define('PetSitterOffers', {
     title: DataTypes.STRING,
     text: DataTypes.STRING,
     username: DataTypes.STRING
@@ -53,7 +53,7 @@ const Comments = sequelize.define('Comment', {
 
 
 
-module.exports = { sequelize,Users, Posts, Comments, Services};
+module.exports = { sequelize,Users, Posts, Comments, PetSitterOffers};
 
 Users.hasMany(Posts, { 
     onDelete: "cascade", 
@@ -66,12 +66,12 @@ Users.hasMany(Comments, {
      // Assuming you have a foreign key userId in the Comments table referencing Users
 });
 
-Users.hasMany(Services, { 
+Users.hasMany(PetSitterOffers, { 
     onDelete: "cascade", 
      // Assuming you have a foreign key userId in the Comments table referencing Users
 });
 
-Services.belongsTo(Users, {
+PetSitterOffers.belongsTo(Users, {
     // Assuming you have a foreign key userId in the Comments table referencing Users
 });
 

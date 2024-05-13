@@ -5,22 +5,22 @@ import { AuthContext } from '../helpers/AuthContext';
 
 function PetSitter() {
     const { id } = useParams();
-    const [serviceObject, setServiceObject] = useState({});
+    const [petSitterObject, setPetSitterObject] = useState({});
     const {authState} = useContext(AuthContext);
 
 
     useEffect(()=>{
-        axios.get(`http://localhost:3001/services/byId/${id}`).then((response)=>{
-            setServiceObject(response.data);
+        axios.get(`http://localhost:3001/petsitteroffers/byId/${id}`).then((response)=>{
+            setPetSitterObject(response.data);
         });
     },[id]);
    
   return (
     <div className='pageOfPosts'>
         <div className='upSide'>
-            <div className='postTitle'>{serviceObject.title}</div>
-            <div className='postText'>{serviceObject.text}</div>
-            <div className='postUsername'>{ serviceObject.username}
+            <div className='postTitle'>{petSitterObject.title}</div>
+            <div className='postText'>{petSitterObject.text}</div>
+            <div className='postUsername'>{ petSitterObject.username}
 </div>
         </div>
         
@@ -29,4 +29,4 @@ function PetSitter() {
   )
 }
 
-export default PetSitter
+export default PetSitter;

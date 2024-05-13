@@ -20,7 +20,7 @@ function CreatePetSitter() {
     });
 
     const onSubmit = (data) => {
-        axios.post("http://localhost:3001/services", data, {
+        axios.post("http://localhost:3001/petsitteroffers", data, {
             headers: { accessToken: localStorage.getItem('accessToken') }
         }).then((response) => {
             navigate("/");
