@@ -57,39 +57,39 @@ module.exports = { sequelize,Users, Posts, Comments, PetSitterOffers};
 
 Users.hasMany(Posts, { 
     onDelete: "cascade", 
-     // Assuming you have a foreign key userId in the Posts table referencing Users
+     
 });
 
-// Define the association between Users and Comments
+
 Users.hasMany(Comments, { 
     onDelete: "cascade", 
-     // Assuming you have a foreign key userId in the Comments table referencing Users
+    
 });
 
 Users.hasMany(PetSitterOffers, { 
     onDelete: "cascade", 
-     // Assuming you have a foreign key userId in the Comments table referencing Users
+     
 });
 
 PetSitterOffers.belongsTo(Users, {
-    // Assuming you have a foreign key userId in the Comments table referencing Users
+   
 });
 
-// Define the association between Posts and Comments
+
 Posts.hasMany(Comments, { 
     onDelete: "cascade", 
-     // Assuming you have a foreign key postId in the Comments table referencing Posts
+     
 });
 
 
-// Define the association between Comments and Users
+
 Comments.belongsTo(Users, {
-     // Assuming you have a foreign key userId in the Comments table referencing Users
+
 });
 
 
-// Define the association between Comments and Posts
+
 Comments.belongsTo(Posts, {
-     // Assuming you have a foreign key postId in the Comments table referencing Posts
+    
 });
 
