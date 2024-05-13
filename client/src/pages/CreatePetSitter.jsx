@@ -20,7 +20,7 @@ function CreatePetSitter() {
     });
 
     const onSubmit = (data) => {
-        axios.post("http://localhost:3001/createpetsitters", data, {
+        axios.post("http://localhost:3001/services", data, {
             headers: { accessToken: localStorage.getItem('accessToken') }
         }).then((response) => {
             navigate("/");
@@ -43,7 +43,6 @@ function CreatePetSitter() {
                     <Field as="textarea" id="text" name="text" placeholder="Write a Description" />
 
                     <button type="submit">Submit Post</button>
-                    <buuton id="buttonMesPetSit">Send a message</buuton>
                 </Form>
             </Formik>
         </div>

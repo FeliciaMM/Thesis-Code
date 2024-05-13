@@ -11,6 +11,8 @@ import axios from 'axios';
 import PageNotFound from "./pages/PageNotFound";
 import Profile from './pages/Profile';
 import CreatePetSitter from './pages/CreatePetSitter';
+import PetSitter from './pages/PetSitter';
+import PetSitterOffers from './pages/PetSitterOffers';
 //DELETE OR ADD PAGE 
 
 function App() {
@@ -64,6 +66,7 @@ function App() {
         <>
         <Link to="/">Home Page</Link>
         <Link to="/createpost"> Create a Post</Link>
+        <Link to="/petsitteroffers">PetSitters</Link>
         <Link className = "logoutButton" onClick={logout}>Logout</Link>
        
         </>
@@ -79,7 +82,9 @@ function App() {
           <Route path ="/registration"element ={<Registration/>}/>
           <Route path ="/login"element ={<Login/>}/>
           <Route path ="/profile/:id"element ={<Profile/>}/>
-          <Route path ="/createpetsitters"element ={<CreatePetSitter/>}/>
+          <Route path ="/services"element ={<CreatePetSitter/>}/>
+          <Route path ="/petsitter/:id"element ={<PetSitter/>}/>
+          <Route path ="/petsitteroffers"element ={<PetSitterOffers/>}/>
           <Route path ="*"element={<PageNotFound/>}/>
         </Routes>
       </Router>

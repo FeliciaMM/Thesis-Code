@@ -3,7 +3,7 @@ const router = express.Router();
 const { Services } = require("../database.js");
 const{validateToken} = require("../middlewares/AuthMiddleware.js");
 
-router.post('/services/petsitters', validateToken, async (req, res) => {
+router.post('/', validateToken, async (req, res) => {
     try {
         const service = req.body;
         service.username = req.user.username;
@@ -15,6 +15,18 @@ router.post('/services/petsitters', validateToken, async (req, res) => {
         res.status(500).json({ error: "Internal server error" });
     }
 });
+
+router.get('/', async(req, res)=>{
+    const listOfService = await Services.findAll();
+    res.json(listOfService);
+});
+
+
+router.get('/byId/:id', async(req, res)=>{
+    const id = req.params.id;
+    const post = await Services.findByPk(id);
+    res.json(post);
+ });
 
 
 module.exports=router;
